@@ -1,12 +1,11 @@
 import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf],
+  imports: [NgForOf],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -17,7 +16,7 @@ export class App implements OnInit {
   private platformId = inject(PLATFORM_ID);
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {  // <-- samo u browseru
+    if (isPlatformBrowser(this.platformId)) {
       this.getUsers();
     }
   }
